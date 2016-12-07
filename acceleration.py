@@ -33,7 +33,7 @@ def run_simulation(fs, x0=0, v0=0, dt=0.05, kp=1.5, ki=0, kd=0.):
     for i in range(len(fs)-1):
         # Update position, velocity using explicit euler
         xs[i+1] = xs[i] + v * dt
-        e = fs[i+1] - xs[i+1]     
+        e = fs[i+1] - xs[i+1]
         u = pid.update(e, dt)
         v = v + u * dt
 
@@ -43,7 +43,7 @@ def run_simulation(fs, x0=0, v0=0, dt=0.05, kp=1.5, ki=0, kd=0.):
 
 def run():
     dt = 0.05
-    ts = np.arange(0, 50, dt)
+    ts = np.arange(0, 20, dt)
     fs = [f(t) for t in ts]
 
     # Various parameters to run simulation at
@@ -65,7 +65,9 @@ def run():
         handles.append(xh)
 
     plt.title('PID Controller')
-    plt.legend(handles=handles)
+    plt.legend(handles=handles, loc=4)
+    plt.xlabel('Time $sec$')
+    plt.ylabel('Position $m$')
     plt.ylim([-5,5])
     plt.show()
 
