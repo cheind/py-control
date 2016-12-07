@@ -12,7 +12,7 @@ the PID controller value as acceleration for every timestamp.
 import numpy as np
 import matplotlib.pyplot as plt
 
-from control.pid import PID
+from pid import PID
 
 def f(t):
     return 0. if t < 1. else 1.1
