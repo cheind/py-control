@@ -6,7 +6,7 @@ class Process(object):
     """Abstract class for a process to be controlled."""
 
     def __init__(self):
-        self.t = 0.
+        self.reset()
 
     def update(self, dt):
         # Read the set point
@@ -23,6 +23,9 @@ class Process(object):
         self.t += dt
 
         return self.e
+
+    def reset(self):
+        self.t = 0.
 
     def loop(self, tsim=10, dt=0.01):
         """Loop the process until simulation time is reached.
