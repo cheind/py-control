@@ -9,7 +9,7 @@ The image below illustrates the effects of different PID parameters on the parti
 
 ![particle_trajectory](etc/particle_trajectory0.png)
 
-Note how the proportional controller overshoots (it basically accelerates all the way until it recognizes it's too late). The dynamic process is implement by inheriting from `ctrl.Process` and providing the necessary methods.
+Note, how the proportional controller overshoots (it basically accelerates all the way until it recognizes it's too late). The dynamic process is implement by inheriting from `ctrl.Process` and providing the necessary methods.
 
 ```Python
 class MoveParticleProcess(ctrl.Process):
@@ -68,6 +68,6 @@ def actuate(self, u, dt):
     self.particle.update(dt)
 ```
 
-you will notice that only a PID controller that includes an integral term can follow the trajectory smoothly.
+you will notice that only a PID controller that includes an integral term can follow the trajectory smoothly. The PD controller stabilizes at a line below the target trajectory.
 
 ![particle_trajectory](etc/particle_trajectory1.png)
