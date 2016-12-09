@@ -53,7 +53,7 @@ def run():
     ]
 
     # Additionally tune PID parameters
-    params = ctrl.tune_twiddle(params=dict(kp=0., ki=0., kd=0.), algorithm=runner, eps=0.001)
+    params = ctrl.tune_twiddle(params=dict(kp=0., ki=0., kd=0.), costfunction=runner, eps=0.001)
     pid_params.append(params)
 
     # Run simulation for each set of PID params

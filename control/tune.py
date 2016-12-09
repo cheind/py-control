@@ -1,7 +1,7 @@
 import numpy as np
 import sys
 
-def tune_twiddle(params, algorithm, dparams=None, eps=0.001):
+def tune_twiddle(params, costfunction, dparams=None, eps=0.001):
     """Tune parameters using Twiddle algorithm.
     
     Twiddle, also known as coordinate ascent, is a line search algorithm
@@ -12,7 +12,7 @@ def tune_twiddle(params, algorithm, dparams=None, eps=0.001):
 
     Args:
         params: Dicitionary of parameters with initial values
-        algorithm: Function that takes a dictionary of parameters and returns an error / fitness value
+        costfunction: Function that takes a dictionary of parameters and returns an error / fitness value
         eps: Stop iteration if error does not improve by at least this value
         dparams: Optional dictionary of step sizes in each parameter direction. If not specified, set
                  to one for each parameter.
@@ -31,14 +31,14 @@ def tune_twiddle(params, algorithm, dparams=None, eps=0.001):
 
         for k in params.keys():
             params[k] += dparams[k]
-            e = algorithm(params)
+            e = costfunction(params)
 
             if e < err:
                 err = e
                 dparams[k] *= 1.1
             else:
                 params[k] -= 2 * dparams[k]
-                e = algorithm(params)
+                e = costfunction(params)
 
                 if e < err:
                     err = e
