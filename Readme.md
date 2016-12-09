@@ -3,7 +3,7 @@
 
 a Python playground to experiment with [PID controllers](https://en.wikipedia.org/wiki/PID_controller). In particular the effects of individual PID terms can be observed in a scenario where a n-dimensional particle, driven by forces, needs to be controlled.
 
-In [particle_trajectory.py](particle_trajectory.py) a one-dimensional particle is asked to to follow a trajectory that changes over time. In particular the trajectory represents a sharp step function. It is assumed that the particle position cannot be directly controlled, but rather the PID controller can compute a force that is being applied to the particle. Over time these forces are then integrated to velocities and particle position.
+In [particle_trajectory.py](particle_trajectory.py) a one-dimensional particle is asked to to follow a trajectory that changes over time. The target trajectory is given by sharp step function. It is assumed that the particle position cannot be directly controlled, but rather the PID controller outputs a force that is being applied to the particle. Over time these forces are then integrated to velocities and particle position.
 
 The image below illustrates the effects of different PID parameters on the particle's trajectory. In blue the target trajectory. Green shows a P-controller, red a PD-controller and a trajectory of an auto-tuned particle is shown in mint. 
 
