@@ -7,7 +7,6 @@ def run_control_loop(target, particle, ctrl, extraforces=None, tsim=10., dt=0.01
     shape = particle.x.shape
     fields = [
         ('x', np.float32, shape), 
-        ('v', np.float32, shape),
         ('e', np.float32, shape),
         ('t', np.float32, 1),
         ('y', np.float32, shape)
@@ -25,7 +24,6 @@ def run_control_loop(target, particle, ctrl, extraforces=None, tsim=10., dt=0.01
         r = result[idx]
         r['t'] = t
         r['x'][:] = particle.x
-        r['v'][:] = particle.v
         r['y'][:] = y
         r['e'][:] = e
 
