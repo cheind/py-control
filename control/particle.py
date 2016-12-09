@@ -17,6 +17,10 @@ class Particle(object):
     def v(self):
         return self.x - self.xprev
 
+    @property
+    def mass(self):
+        return 1.0 / self.inv_mass
+
     def update(self, dt):
 
         a = self.fnet * self.inv_mass

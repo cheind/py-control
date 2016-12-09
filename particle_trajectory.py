@@ -40,7 +40,7 @@ class MoveParticleProcess(ctrl.Process):
 
 def runner(pid_params):
     process = MoveParticleProcess(particle=ctrl.Particle(x0=[0], v0=[0], inv_mass=1.), pid=ctrl.PID(**pid_params))
-    result = process.loop(tsim=50, dt=0.5)
+    result = process.loop(tsim=50, dt=0.2)
     e = np.sum(np.square(result['e']))
     return e
 
