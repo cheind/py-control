@@ -14,7 +14,7 @@ class Particle(object):
         self.fnet += f
 
     @property
-    def velocity(self):
+    def v(self):
         return self.x - self.xprev
 
     def update(self, dt):
